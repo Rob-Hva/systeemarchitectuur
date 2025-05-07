@@ -6,9 +6,10 @@ using namespace std;
 class Complex{
     public:
         Complex(int reeel, int imaginair);
-        drukAf();
-        telOp(Complex);
-        DrukAfRadiaal();
+        void drukAf();
+        void telOp(Complex);
+        void DrukAfRadiaal();
+        void DrukAfLengte();
     private:
         int re;
         int im;
@@ -21,18 +22,23 @@ Complex::Complex(int reeel, int imaginair){
 
 }
 
-Complex::drukAf(){
+void Complex::drukAf(){
     cout << "Het complexe getal is: " << re << " + " << im << "i" << endl;
 }
 
-Complex::telOp(Complex c){
+void Complex::telOp(Complex c){
     re = re + c.re;
     im = im + c.im;
 }
 
-Complex::DrukAfRadiaal(){
+void Complex::DrukAfRadiaal(){
     argument = atan2(im, re) / M_PI;
     cout << "Het argument is: " << argument << " PIrad" << endl;
+}
+
+void Complex::DrukAfLengte(){
+    float lengte = sqrt(re * re + im * im);
+    cout << "De lengte is: " << lengte << endl;
 }
 
 int main(){ 
@@ -58,9 +64,12 @@ int main(){
     delete &imInput;
 
     c1.DrukAfRadiaal();
-    c2.DrukAfRadiaal();
-
-    delete &c2;
+    c1.DrukAfLengte();
     delete &c1;
+
+    c2.DrukAfRadiaal();
+    c2.DrukAfLengte();
+    delete &c2;
+
     return 0;
 }

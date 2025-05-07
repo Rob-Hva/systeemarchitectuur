@@ -144,6 +144,7 @@ void passagier::hallo(){
 class Vlucht{
     public:
         Vlucht(string vliegtuig, piloot *Piloten[], crew *crewlid[], string bestemming, passagier *passagiers[]);
+        ~Vlucht();
         int opbrengst();
         void hallo();
     private:
@@ -182,6 +183,27 @@ Vlucht::Vlucht(string vliegtuig, piloot *Piloten[], crew *crewlid[], string best
     // Hier wordt een copy constructor gebruikt om de meegegeven array van passagiers in het niewe object te kopieeren.
     for (int i = 0; i < AANTAL_PASSAGIERS; i++){
         pas[i] = new passagier(*passagiers[i]);;
+    }
+    
+}
+
+Vlucht::~Vlucht(){
+
+    delete vli;
+
+    // hier worden alle piloten verwijderd.
+    for (int i = 0; i < AANTAL_PILOTEN; i++){
+        delete pil[i];
+    }
+
+    // Hier worden alle crewleden verwijderd.
+    for (int i = 0; i < AANTAL_CREWLEDEN; i++){
+        delete cre[i];
+    }
+
+    // Hier wordten alle piloten verwijderd.
+    for (int i = 0; i < AANTAL_PASSAGIERS; i++){
+        delete pas[i];
     }
     
 }
@@ -226,9 +248,9 @@ int main(){
     v2.hallo();
 
     cout << "de opbrengst voor vlucht 1 = " << v1.opbrengst() << endl;
-    cout << "de opbrengst voor vlucht 1 = " << v2.opbrengst() << endl;
-
-
     delete &v1;
+    cout << "de opbrengst voor vlucht 1 = " << v2.opbrengst() << endl;
+    delete &v2;
+
     return 0;
 }

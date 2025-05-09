@@ -1,8 +1,9 @@
 /**
- * @file    complex_getal_radENhoek.cpp
+ * @file    complex_printen.cpp
  * @author  Rob Beaufort
  * @brief   Er kan een complex getal aangemaakt worden. Dit getal kan je een radius en een hoek meegeven.
  *          Daarnaast kunnen er complexen met elkaar en met integers vermenigvuldigd worden.
+ *          Vervolgens kan de het complexe getal worden afgedrukt met <<.
  * @version 1.0
  * @date    9-5-2025
  */
@@ -21,6 +22,7 @@ class Complex{
         Complex operator*(Complex& second);
         Complex operator*(int second);
         friend Complex operator*(int scalar, const Complex& complex);
+        friend ostream& operator<<(ostream& left, Complex& complex);
 
     private:
         static int aantalComplexen;
@@ -68,6 +70,11 @@ Complex Complex::operator*(int second){
     return Complex(newHoek, newRadius);
 }
 
+// Hier wordt de operator << overloaded. Dit zorg
+ostream& operator<<(ostream& left, Complex& complex){
+    complex.drukAf();
+}
+
 Complex operator*(int scalar, const Complex& complex){
     // Vermenigvuldig de radius met de scalar
     int newRadius = complex.radius * scalar;
@@ -112,11 +119,11 @@ int main(){
     Complex c5 = 3 * c3;
 
     // Hier worden alle waardes van de complexe getallen afgedrukt.
-    c1.drukAf();
-    c2.drukAf();
-    c3.drukAf();
-    c4.drukAf();
-    c5.drukAf();
+    cout << c1;
+    cout << c2;
+    cout << c3;
+    cout << c4;
+    cout << c5;
 
     return 0;
 }

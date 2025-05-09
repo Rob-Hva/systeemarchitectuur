@@ -37,24 +37,24 @@ void Complex::drukAf(){
 
 int main(){ 
 
-    int hoeInput;
+    int hoekInput;
     int radInput;
 
     // Hier kiest de gebruiker de waardes voor complex getal 1.
     cout << "De hoek getal 1: ";
-    cin >> hoeInput;
+    cin >> hoekInput;
     cout << "De radius getal 1: ";
     cin >> radInput;
 
-    Complex c1 = *new  Complex(hoeInput, radInput);
+    Complex c1 = *new  Complex(hoekInput, radInput);
     
     // Hier kiest de gebruiker de waardes voor complex getal 2.
     cout << "De hoek getal 2: ";
-    cin >> hoeInput;
+    cin >> hoekInput;
     cout << "De radius getal 2: ";
     cin >> radInput;
 
-    Complex c2 = *new  Complex(hoeInput, radInput);
+    Complex c2 = *new  Complex(hoekInput, radInput);
 
     c1.drukAf();
     c2.drukAf();

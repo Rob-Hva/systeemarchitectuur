@@ -69,7 +69,7 @@ void Tree::Insert(int value){
     int success = 0;
 
     while (success == 0){
-            if (root == nullptr) {
+        if (root == nullptr) {
             root = new Node(value);
 
         } else if ( value < currentNode->GetValue()) {

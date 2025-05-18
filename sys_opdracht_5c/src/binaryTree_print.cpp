@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <vector>
+#include <ctime>
 
 #define TREE_SYMBOL_UNDERNUMBER 1 // Dit is het symbool dat onder de node komt te staan. "|"
 #define TREE_SYMBOL_SIDEWAYS 2 // Dit is het symbool dat naast het symbool onder de node komt te staan. "_"
@@ -233,8 +234,9 @@ int main(){
     Tree *tree = new Tree(root);
 
     // Voert 20 random getalen in in de binairy tree.
+    srand(time(0));
     for(int i = 0; i < 20; i++){
-    tree->Insert(rand() % 10);
+        tree->Insert(rand() % 10 + 1);
     }
 
     // Hier wordt de tree geprint.

@@ -171,7 +171,7 @@ void Tree::printTree(){
     // Hier wordt er een 3D vector aangemaakt die de tree gaat representeren.
     // De 3de dimensie van de vector is om de takken van de tree te representeren.
     int width = pow(2, (longestLeaf()));
-    int length = 2 * longestLeaf();
+    int length = longestLeaf();
     vector<vector<vector<int>>> output = vector<vector<vector<int>>>(length, vector<vector<int>>(width, vector<int>(2,0)));
 
     // Hier worden de startwaarden van de eerste node ingesteld
